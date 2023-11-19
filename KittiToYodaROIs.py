@@ -239,8 +239,12 @@ def main():
         if max_ROIs > 0 and i >= max_ROIs:
             break
     #
-    print(labels)
+   # print(labels)
     #
+    # Ensure the output directory exists
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+        
     if save_ROIs == True:
         with open(os.path.join(output_dir, label_file), 'w') as f:
             for k in range(len(labels)):
